@@ -1,0 +1,10 @@
+<p *ngIf="isShow">
+  struct works!
+</p>
+<button (click)="isShow = !isShow">Toggle</button>
+
+<p></p>
+
+<ul *ngFor="let subject of arrSubject">
+  <li> {{subject }}</li>
+</ul>

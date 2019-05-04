@@ -1,0 +1,24 @@
+<h3 [hidden]="forgot" >{{name}}</h3>
+
+
+<img [src]="images" alt="">
+<button (click)="clickForgotButton()">Hidden title</button>
+<p></p>
+<!-- &nbsp;<input type="text" (keyup)="showEvent($event)">
+<div>
+    ==>>> {{name}}
+</div> -->
+
+<p></p> 
+&nbsp;<input type="text" [(ngModel)]="name" #txtUsername>
+<div>
+   Name:  <span [ngStyle]="name.length %2 === 0 ? eventStyle : oddStyle">{{name}}</span>
+</div>
+
+<div [ngClass]="name.length %2 === 0 ? 'circle' : 'square'"> </div>
+
+<div [ngClass]="shapeStyle"></div>
+
+<code>
+    {{txtUsername.value | json}}
+</code>

@@ -1,0 +1,30 @@
+<div *ngIf="controllerForm">
+  <input type="text" placeholder="english" [(ngModel)]="newEn"> <!-- Dùng ngModel để lấy dữ liệu-->
+  <input type="text" placeholder="vietnamese" [(ngModel)]="newVn">
+  <button  class="btn btn-outline-success" (click)="addWord()">Add</button>
+</div>
+<button type="button" class="btn btn-outline-success" (click)="controllerForm = true" *ngIf="!controllerForm">Add new</button>
+
+<p></p>
+&nbsp;
+<select [(ngModel)]="filterStatus">
+  <option value="TAT_CA">Tất cả</option>
+  <option value="DA_HOC">Đã học</option>
+  <option value="CHUA_HOC">Chưa học</option>
+</select>
+
+<ul *ngFor="let word of arrWords">
+  <!-- Bao het moi lay duoc gia tri ben trong -->
+  <div *ngIf="showFilterStatus(word.memorized)">
+    <li [ngStyle]="{color: word.memorized ? 'green' : 'red'}"> <b>{{word.id}}</b> - {{word.en}} => {{word.vn}}
+    <button class="btn btn-outline-danger" (click)="removeWord(word.id)">Delete</button> &nbsp;
+    <button class="btn btn-outline-primary" (click)="word.memorized = !word.memorized"> {{!word.memorized ? 'Đã thuộc' : 'Chưa thuộc'}}</button></li>
+</div>
+</ul>
+<p></p>
+<div>
+  <code>Input 1: {{newEn}}</code>
+</div>
+<div>
+  <code>Input 2: {{newVn}}</code>
+</div>

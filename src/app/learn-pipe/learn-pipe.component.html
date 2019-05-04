@@ -1,0 +1,15 @@
+<!--  gia tri | che do hien thi  -->
+<p>
+  {{days | date : 'short'}}
+</p>
+<p>
+  {{ person | json}}
+</p>
+
+
+<p>
+  Age làm tròn lên: {{ person.age | roundNum: true : 10}}
+</p>
+<p>
+  Age làm tròn xuống: {{ person.age | roundNum: false: 1}}
+</p>
